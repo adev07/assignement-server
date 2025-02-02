@@ -1,12 +1,15 @@
 import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
+
+dotenv.config(); // Ensure you load environment variables
 
 export const sequelize = new Sequelize(
-  "assignment_9t6t",
-  "assignment_9t6t_user",
-  "z0A9lJg79xvcDMnLN4eQWoFIFSlqITd0",
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
     dialect: "postgres",
-    host: "z0A9lJg79xvcDMnLN4eQWoFIFSlqITd0@dpg-cufpnp5svqrc73fscfpg-a.singapore-postgres.render.com",
+    host: process.env.DB_HOST,
     port: 5432,
     dialectOptions: {
       ssl: {
